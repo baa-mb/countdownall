@@ -4,7 +4,7 @@ input.onButtonPressed(Button.A, function () {
 input.onButtonPressed(Button.B, function () {
     countDownGraph(64, 1000)
 })
-function countDownZahl (zeit: number, pause2: number) {
+function countDownZahl (zeit: number, warte: number) {
     for (let Index = 0; Index <= zeit; Index++) {
         anzeige = zeit - Index
         zehner = Math.round(anzeige / 10 - 0.5)
@@ -24,11 +24,11 @@ function countDownZahl (zeit: number, pause2: number) {
         if (anzeige < 5) {
             music.playTone(262, music.beat(BeatFraction.Whole))
         } else {
-            basic.pause(pause2)
+            basic.pause(warte)
         }
     }
 }
-function countDownGraph (pixelZahl: number, pause2: number) {
+function countDownGraph (pixelZahl: number, warte: number) {
     streifen = neopixel.create(DigitalPin.P1, pixelZahl, NeoPixelMode.RGB)
     streifen.clear()
     streifen.showColor(neopixel.colors(NeoPixelColors.White))
@@ -39,7 +39,7 @@ function countDownGraph (pixelZahl: number, pause2: number) {
         if (anzeige < 5) {
             music.playTone(262, music.beat(BeatFraction.Whole))
         } else {
-            basic.pause(pause2)
+            basic.pause(warte)
         }
     }
 }
